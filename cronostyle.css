@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+.chronometre{
+    margin-top: 100px;
+    background-color: #03e9f4;
+    padding: 20px;
+    border-radius: 15px;
+    height: 200px;
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+}
+.tim{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 10px;
+    /*-------- */
+    background-color: aliceblue;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+button{
+    background: #05deea;;
+         color: black;
+         width: 150px;
+         padding: 10px;
+         margin: 18px;
+         margin-top: 30px;
+         border-radius: 10px;
+         line-height: 1.5em;
+         font-size: 20px;
+         border: none;
+}
+button:hover{
+    box-shadow: 0 0 10px #2bc1d8;
+    color: white;
+}
+@media (max-width:762px){
+    .chronometre{
+        width: 450px;
+        height:180px;
+    }
+}
+@media (max-width:514px){
+    .chronometre{
+        width: 250px;
+        height:140px;
+    }
+}

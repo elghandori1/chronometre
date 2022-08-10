@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chronometreMobile</title>
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+.chronometre{
+    margin-top: 100px;
+    background-color: #03e9f4;
+    padding: 20px;
+    border-radius: 15px;
+    height: 200px;
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+}
+.tim{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 10px;
+    /*-------- */
+    background-color: aliceblue;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+button{
+    background: #05deea;
+         color: black;
+         width: 150px;
+         padding: 10px;
+         margin: 18px;
+         margin-top: 30px;
+         border-radius: 10px;
+         line-height: 1.5em;
+         font-size: 20px;
+         border: none;
+}
+button:hover{
+    box-shadow: 0 0 10px #2bc1d8;
+    color: white;
+}
+@media (max-width:762px){
+    .chronometre{
+        width: 450px;
+        height:180px;
+    }
+    .chronometre{
+    margin-top: 70px;
+    background-color: #05deea;
+    padding: 10px;
+    border-radius: 15px;
+    height: auto;
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+}
+.tim{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    /*-------- */
+    background-color: aliceblue;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+/* #start{
+  
+} */
+button{
+    background: #07c3cd;;
+         color: black;
+         margin-top: 40px;
+         width: 250px;
+         padding: 10px;
+         margin: 20px;
+         border-radius: 10px;
+         line-height: 1.5em;
+         font-size: 15px;
+         border: none;
+}
+}
+@media (max-width:514px){
+.chronometre{
+        width: 280px;
+        height:140px;
+    }
+.chronometre{
+    margin-top: 70px;
+    background-color: #05deea;
+    padding: 10px;
+    border-radius: 15px;
+    height: auto;
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+}
+.tim{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    /*-------- */
+    background-color: aliceblue;
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+
+}
+#start{
+    margin-top: 20px;
+}
+button{
+    background: #07c3cd;;
+         color: black;
+         width: 250px;
+         padding: 8px;
+         margin: 6px;
+         border-radius: 10px;
+         line-height: 1.5em;
+         font-size: 15px;
+         border: none;
+}
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="chronometre">
+        <div class="tim" >
+           <span id="h" class="stp">0 h</span> :
+           <span id="m" class="stp">0 min</span> :
+           <span id="s" class="stp">0 s</span> :
+           <ms id="ms" class="stp">0 ms</span>
+        </div>
+        <div class="btn">
+        <button id="start" onclick="start()">Start</button>
+        <button id="stop" onclick="stop()">Stop</button>
+        <button id="reset" onclick="reset()">Reset</button>  
+        </div>
+    </div>
+        <script>
+            let ms = document.getElementById("ms");
+let s = document.getElementById("s");
+let m = document.getElementById("m");
+let h = document.getElementById("h");
+let mili = 0;
+let sec = 0;
+let min = 0;
+let hour = 0;
+let interval = 0;
+function conteur(){
+    if(mili===100){
+        sec++
+        s.innerHTML=sec+' s'
+        if(sec == 60){
+            min++
+            m.innerHTML=min +' min'
+            if(min == 60){
+                hour++
+                h.innerHTML=hour+' h'
+                min=0
+            }
+            sec=0
+        }
+        mili=0
+    } else {
+        mili++
+        ms.innerHTML = mili + " ms"
+    }
+}
+
+function start() {
+    if(!interval){
+        interval = setInterval(conteur, 10)
+     }
+     h.style=''
+     m.style=''
+     s.style=''
+     ms.style=''
+   
+}
+function stop() {
+    if(interval){
+        clearInterval(interval)
+        interval = null;
+        h.style='color:#2bc1d8'
+        m.style='color:#2bc1d8'
+        s.style='color:#2bc1d8'
+        ms.style='color:#2bc1d8'
+    }
+  
+}
+function reset() {
+    stop()
+    mili=sec=min=hour = 0;
+    h.innerHTML = hour + " h"
+    ms.innerHTML = mili + " ms"
+    m.innerHTML = min + " min"
+    s.innerHTML = sec + " s"
+    h.style=''
+    m.style=''
+    s.style=''
+    ms.style=''
+}
+
+        </script>
+</body>
+</html>

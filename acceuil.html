@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chronometre</title>
+    <link rel="stylesheet" href="cronostyle.css">
+</head>
+<body>
+    <div class="chronometre">
+        <div class="tim" >
+           <span id="h" class="stp">0 h</span> :
+           <span id="m" class="stp">0 min</span> :
+           <span id="s" class="stp">0 s</span> :
+           <ms id="ms" class="stp">0 ms</span>
+        </div>
+        <div class="btn">
+        <button id="start" onclick="start()">Start</button>
+        <button id="stop" onclick="stop()">Stop</button>
+        <button id="reset" onclick="reset()">Reset</button>  
+        </div>
+    </div>
+        <script src="mainn.js"></script>
+</body>
+</html>
